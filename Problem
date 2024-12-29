@@ -1,0 +1,100 @@
+#Problem 01
+
+n = int(input("Number of terms: "))
+
+odd_numbers = [i for i in range(1, 2 * n, 2)]
+
+sum_of_odds = sum(odd_numbers)
+
+print("The odd numbers are:", " ".join(map(str, odd_numbers)))
+print(f"The Sum of the Odd Natural Numbers up to {n} terms: {sum_of_odds}")
+
+
+
+
+
+#Problem 02
+num = int(input("Enter a number: "))
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+if is_prime(num):
+    print(f"The given number {num} is prime.")
+else:
+    print(f"The given number {num} is not prime.")
+
+
+
+
+
+#Problem 03
+input_str = input("Enter a string: ")
+
+def remove_duplicates(s):
+    seen = set()  
+    result = []   
+    for char in s:
+        if char not in seen:
+            seen.add(char)
+            result.append(char)
+    return ''.join(result)
+
+output_str = remove_duplicates(input_str)
+print("Resultant string:", output_str)
+
+
+
+
+#Problem 04
+input_list = [3, 20, 10, 55, 10000, 166]
+
+minimum = min(input_list)
+maximum = max(input_list)
+
+print(f"Minimum = {minimum}, Maximum = {maximum}")
+
+
+
+
+#problem 05
+
+input_file = "input.txt"  # File to read from
+output_file = "output.txt"  # File to write to
+
+try:
+    with open(input_file, 'r') as file:
+        content = file.read()  # Read the entire content of the file
+
+    with open(output_file, 'w') as file:
+        file.write(content)  # Write the content to the output file
+
+    print(f"Content has been successfully copied from {input_file} to {output_file}.")
+
+except FileNotFoundError:
+    print(f"Error: The file {input_file} does not exist.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+
+
+#problem 06:
+class Vehicle:
+    def __init__(self, name, max_speed, mileage):
+        self.name = name
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+class Bus(Vehicle):
+    pass  
+bus = Bus("Volvo", 180, 12)
+
+print(f"Vehicle name: {bus.name}")
+print(f"Speed: {bus.max_speed}")
+print(f"Mileage: {bus.mileage}")
